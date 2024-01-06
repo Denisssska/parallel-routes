@@ -1,5 +1,4 @@
-import type { Config } from 'tailwindcss'
-
+import type { Config } from 'tailwindcss';
 const config: Config = {
   content: [
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
@@ -7,14 +6,29 @@ const config: Config = {
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
+    screens: {
+      xs: { min: '432px' },
+      sm: { min: '640px' },
+      // => @media (min-width: 640px and max-width: 767px) { ... }
+
+      md: { min: '768px' },
+      // => @media (min-width: 768px and max-width: 1023px) { ... }
+
+      lg: { min: '1024px' },
+      // => @media (min-width: 1024px and max-width: 1279px) { ... }
+
+      xl: { min: '1280px' },
+      // => @media (min-width: 1280px and max-width: 1535px) { ... }
+
+      '2xl': { min: '1536px' },
+      // => @media (min-width: 1536px) { ... }
+    },
     extend: {
       backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+        heroGradient: 'linear-gradient(94.59deg,#4923B4 2.39%,#E878EF 97.66%)',
       },
     },
   },
   plugins: [],
-}
-export default config
+};
+export default config;
