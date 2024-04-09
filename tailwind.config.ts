@@ -27,6 +27,18 @@ const config: Config = {
       backgroundImage: {
         heroGradient: 'linear-gradient(94.59deg,#4923B4 2.39%,#E878EF 97.66%)',
       },
+      colors: {
+        'custom-sky': '#38bdf8',
+      },
+      keyframes: {
+        'fade-in': {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
+        },
+      },
+      animation: {
+        fadeIn: 'fade-in .3s ease-in-out',
+      },
     },
   },
   plugins: [],

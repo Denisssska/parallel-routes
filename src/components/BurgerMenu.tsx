@@ -12,13 +12,18 @@ const BurgerMenu: FC<IBurgerMenu> = ({ open, setOpen }) => {
       onClick={() => setOpen(!open)}
       className={
         (open ? 'visible ' : 'hidden ') +
-        'bg-heroGradient fixed left-0 right-0 top-0 bottom-0 flex justify-center sm:hidden '
+        'bg-heroGradient fixed left-0 right-0 top-0 bottom-0 flex justify-center sm:hidden animate-fadeIn '
       }
     >
       <ul className='flex flex-col justify-center items-center gap-5 pt-10'>
         <li>
           <Link onClick={() => setOpen(!open)} className='text-2xl font-semibold text-white' href='/'>
             Home
+          </Link>
+        </li>
+        <li>
+          <Link onClick={() => setOpen(!open)} className='text-2xl font-semibold text-white' href='/grid'>
+            grid Page
           </Link>
         </li>
         <li>

@@ -15,8 +15,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: PropsWithChildren<unknown>) {
   return (
-    <html lang='en'>
-      <body className={inter.className}>
+    <html className='scroll-smooth' lang='en'>
+      <body suppressHydrationWarning={true} className={inter.className}>
         <Container>
           <Header />
           {children}

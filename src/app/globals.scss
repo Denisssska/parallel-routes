@@ -4,6 +4,9 @@
 
 :root {
   --foreground-rgb: 0, 0, 0;
+  --background-color-custom: #0f172a;
+  --foreground-rgb-custom: #fff;
+  --foreground-rgb-custom-hover: #38bdf8;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
 }
@@ -17,7 +20,11 @@
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
+  color: var(--foreground-rgb-custom);
+  // color: rgb(var(--foreground-rgb));
+
+  background-color: var(--background-color-custom);
+
   /* background: linear-gradient(
       to bottom,
       transparent,

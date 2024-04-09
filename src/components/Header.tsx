@@ -1,12 +1,12 @@
 'use client';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 import BurgerMenu from './BurgerMenu';
 
+// const url = window.location.pathname.slice(1);
 const Header = () => {
-  // useEffect(() => {
-  //   const button = document.querySelector('#burgerMenu');
-  // }, []);
+  const path = usePathname();
 
   const [open, setOpen] = useState<boolean>(false);
   return (
@@ -15,16 +15,21 @@ const Header = () => {
         <Link className=' z-10' href='/'>
           <span
             className={
-              open ? 'text-white text-xl' : 'text-black ' + ' text-xl sm:text-2xl sm:text-black font-bold'
+              open
+                ? 'text-custom-sky text-xl'
+                : 'text-white ' + ' text-xl sm:text-2xl sm:text-white font-bold'
             }
           >
             PARALLEL ROUTES
           </span>
         </Link>
-        <ul className='hidden  justify-center gap-10 text-lg  font-medium sm:flex'>
+        <ul className='hidden  justify-center gap-10 px-0 sm:px-2  font-medium sm:flex'>
           <li>
             <Link
-              className='  relative transition-all after:duration-300 after:absolute after:left-0 after:-bottom-1 after:scale-0 hover:after:scale-100 after:h-[2px] after:w-full after:bg-sky-900'
+              className={
+                (path === '/' && 'after:scale-100 text-custom-sky ') +
+                ' hover:text-custom-sky  relative transition-all after:duration-300 after:absolute after:left-0 after:-bottom-1 after:scale-0 hover:after:scale-100 after:h-[2px] after:w-full after:bg-sky-900'
+              }
               href='/'
             >
               Home
@@ -32,7 +37,21 @@ const Header = () => {
           </li>
           <li>
             <Link
-              className='relative transition-all after:duration-300 after:absolute after:left-0 after:-bottom-1 after:scale-0 hover:after:scale-100 after:h-[2px] after:w-full after:bg-sky-900'
+              className={
+                (path === '/grid' && 'after:scale-100 text-custom-sky ') +
+                ' hover:text-custom-sky  relative transition-all after:duration-300 after:absolute after:left-0 after:-bottom-1 after:scale-0 hover:after:scale-100 after:h-[2px] after:w-full after:bg-sky-900'
+              }
+              href='/grid'
+            >
+              Grid
+            </Link>
+          </li>
+          <li>
+            <Link
+              className={
+                (path === '/dashboard' && 'after:scale-100 text-custom-sky ') +
+                ' hover:text-custom-sky  relative transition-all after:duration-300 after:absolute after:left-0 after:-bottom-1 after:scale-0 hover:after:scale-100 after:h-[2px] after:w-full after:bg-sky-900'
+              }
               href='/dashboard'
             >
               Dashboard
@@ -40,10 +59,13 @@ const Header = () => {
           </li>
           <li>
             <Link
-              className='relative transition-all after:duration-300 after:absolute after:left-0 after:-bottom-1 after:scale-0 hover:after:scale-100 after:h-[2px] after:w-full after:bg-sky-900'
+              className={
+                (path === '/dashboard/settings' && 'after:scale-100 ') +
+                ' hover:text-custom-sky  relative transition-all after:duration-300 after:absolute after:left-0 after:-bottom-1 after:scale-0 hover:after:scale-100 after:h-[2px] after:w-full after:bg-sky-900'
+              }
               href='/dashboard/settings'
             >
-              P Settings
+              Settings
             </Link>
           </li>
         </ul>
